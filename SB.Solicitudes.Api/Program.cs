@@ -1,15 +1,21 @@
+using SB.Solicitudes.Infrastructure;
+using SB.Solicitudes.Application;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
 builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+
+//Infrastructure and Application layers
+builder.Services.AddInfrastructure(builder.Configuration);
+builder.Services.AddApplication();
+/*----------------------------------------------------------*/
+
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();

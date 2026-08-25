@@ -10,6 +10,4 @@ namespace SB.Solicitudes.Domain.Entities
 
         public ICollection<Solicitud> Solicitudes { get; set; }
     }
-
-
 }
