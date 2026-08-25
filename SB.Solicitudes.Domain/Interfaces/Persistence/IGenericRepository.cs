@@ -1,7 +1,7 @@
 ﻿using SB.Solicitudes.Application.Common.Pagination;
 using SB.Solicitudes.Domain.Common;
 
-namespace SB.Solicitudes.Application.Interfaces.Persistence
+namespace SB.Solicitudes.Domain.Interfaces.Persistence
 {
     public interface IGenericRepository<TEntity>
         where TEntity : BaseEntity

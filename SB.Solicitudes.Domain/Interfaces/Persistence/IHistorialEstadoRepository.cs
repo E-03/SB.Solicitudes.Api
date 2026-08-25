@@ -1,6 +1,6 @@
 ﻿using SB.Solicitudes.Domain.Entities;
 
-namespace SB.Solicitudes.Application.Interfaces.Persistence
+namespace SB.Solicitudes.Domain.Interfaces.Persistence
 {
     public interface IHistorialEstadoRepository : IGenericRepository<HistorialEstado>
     {

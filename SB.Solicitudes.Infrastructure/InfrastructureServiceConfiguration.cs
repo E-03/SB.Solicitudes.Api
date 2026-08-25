@@ -1,14 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using SB.Solicitudes.Application.Interfaces.Persistence;
+using SB.Solicitudes.Domain.Interfaces.Persistence;
 using SB.Solicitudes.Infrastructure.Persistence;
 using SB.Solicitudes.Infrastructure.Persistence.Repositories;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SB.Solicitudes.Infrastructure
 {
@@ -64,6 +59,10 @@ namespace SB.Solicitudes.Infrastructure
             services.AddScoped<
                 ITipoSolicitudRepository,
                 TipoSolicitudRepository>();
+
+            services.AddScoped<
+                IUnitOfWork,
+                UnitOfWork>();
         }
     }
 }
