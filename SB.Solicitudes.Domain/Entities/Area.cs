@@ -1,12 +1,23 @@
-﻿using SB.Solicitudes.Domain.Common;
+using SB.Solicitudes.Domain.Common;
 
 namespace SB.Solicitudes.Domain.Entities
 {
     public class Area : BaseEntity
     {
-        public string Nombre { get; set; }
-        public bool Activa { get; set; }
+        private Area()
+        {
+        }
 
-        public ICollection<Solicitud> Solicitudes { get; set; }
+        public Area(string nombre)
+        {
+            Nombre = nombre;
+            Activa = true;
+        }
+
+        public string Nombre { get; private set; } = null!;
+        public bool Activa { get; private set; }
+
+        public ICollection<Solicitud> Solicitudes { get; private set; }
+            = new List<Solicitud>();
     }
 }

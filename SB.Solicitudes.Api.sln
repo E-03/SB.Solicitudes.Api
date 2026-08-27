@@ -9,7 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SB.Solicitudes.Domain", "SB
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SB.Solicitudes.Infrastructure", "SB.Solicitudes.Infrastructure\SB.Solicitudes.Infrastructure.csproj", "{425BEBF8-0828-4072-AD0F-C0E2E6858EC2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SB.Solicitudes.Application", "SB.Solicitudes.Presentation\SB.Solicitudes.Application.csproj", "{45B11921-D0DE-4084-848B-B1D0A41421D1}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SB.Solicitudes.Application", "SB.Solicitudes.Application\SB.Solicitudes.Application.csproj", "{45B11921-D0DE-4084-848B-B1D0A41421D1}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SB.Solicitudes.IntegrationTests", "SB.Solicitudes.IntegrationTests\SB.Solicitudes.IntegrationTests.csproj", "{158B1F5E-F929-488D-8A28-520836A46218}"
 EndProject

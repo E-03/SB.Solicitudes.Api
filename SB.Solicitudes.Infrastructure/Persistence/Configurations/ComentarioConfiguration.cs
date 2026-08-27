@@ -1,4 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using SB.Solicitudes.Domain.Entities;
 
@@ -17,6 +17,7 @@ namespace SB.Solicitudes.Infrastructure.Persistence.Configurations
 
             builder.Property(x => x.Visibilidad)
                 .IsRequired()
+                .HasConversion<string>()
                 .HasMaxLength(20);
 
             builder.Property(x => x.Fecha)
@@ -24,7 +25,7 @@ namespace SB.Solicitudes.Infrastructure.Persistence.Configurations
 
             // Comentario -> Solicitud
             builder.HasOne(x => x.Solicitud)
-                .WithMany()
+                .WithMany(x => x.Comentarios)
                 .HasForeignKey(x => x.SolicitudId)
                 .OnDelete(DeleteBehavior.Cascade);
 
@@ -38,5 +39,4 @@ namespace SB.Solicitudes.Infrastructure.Persistence.Configurations
             builder.HasIndex(x => x.UsuarioId);
         }
     }
-
 }

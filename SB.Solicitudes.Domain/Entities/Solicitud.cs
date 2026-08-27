@@ -1,36 +1,83 @@
-﻿using SB.Solicitudes.Domain.Common;
+using SB.Solicitudes.Domain.Common;
 
 namespace SB.Solicitudes.Domain.Entities
 {
     public class Solicitud : BaseEntity
     {
-        public string Codigo { get; set; }
-        public string Titulo { get; set; }
-        public string Descripcion { get; set; }
-        public PrioridadesSolicitud? Prioridad { get; set; }
-        public EstadosSolicitud? Estado { get; set; }
-        public DateTime FechaCreacion { get; set; }
-        public DateTime FechaCompromiso { get; set; }
-        public DateTime? FechaCierre { get; set; }
-        public string? UrlEvidencia { get; set; }
-        public string? ReferenciaEvidencia { get; set; }
+        private Solicitud()
+        {
+        }
 
-        // Relaciones
-        public int UsuarioSolicitanteId { get; set; }
-        public Usuario UsuarioSolicitante { get; set; }
+        public Solicitud(
+            string codigo,
+            string titulo,
+            string descripcion,
+            PrioridadesSolicitud prioridad,
+            DateTime fechaCompromiso,
+            int usuarioSolicitanteId,
+            int areaId,
+            int tipoSolicitudId,
+            string? urlEvidencia,
+            string? referenciaEvidencia)
+        {
+            Codigo = codigo;
+            Titulo = titulo;
+            Descripcion = descripcion;
+            Prioridad = prioridad;
+            Estado = EstadosSolicitud.Registrada;
+            FechaCreacion = DateTime.UtcNow;
+            FechaCompromiso = fechaCompromiso;
+            UsuarioSolicitanteId = usuarioSolicitanteId;
+            AreaId = areaId;
+            TipoSolicitudId = tipoSolicitudId;
+            UrlEvidencia = urlEvidencia;
+            ReferenciaEvidencia = referenciaEvidencia;
+        }
 
-        public int? ResponsableId { get; set; }
-        public Usuario? Responsable { get; set; }
+        public string Codigo { get; private set; } = null!;
+        public string Titulo { get; private set; } = null!;
+        public string Descripcion { get; private set; } = null!;
+        public PrioridadesSolicitud Prioridad { get; private set; }
+        public EstadosSolicitud Estado { get; private set; }
+        public DateTime FechaCreacion { get; private set; }
+        public DateTime FechaCompromiso { get; private set; }
+        public DateTime? FechaCierre { get; private set; }
+        public string? UrlEvidencia { get; private set; }
+        public string? ReferenciaEvidencia { get; private set; }
 
-        public int AreaId { get; set; }
-        public Area Area { get; set; }
+        public int UsuarioSolicitanteId { get; private set; }
+        public Usuario UsuarioSolicitante { get; private set; } = null!;
 
-        public int TipoSolicitudId { get; set; }
-        public TipoSolicitud TipoSolicitud { get; set; }
+        public int? ResponsableId { get; private set; }
+        public Usuario? Responsable { get; private set; }
 
-        // Colecciones
-        public ICollection<Comentario> Comentarios { get; set; } = new List<Comentario>();
-        public ICollection<HistorialEstado> HistorialEstados { get; set; } = new List<HistorialEstado>();
-        public ICollection<Notificacion> Notificaciones { get; set; } = new List<Notificacion>();
+        public int AreaId { get; private set; }
+        public Area Area { get; private set; } = null!;
+
+        public int TipoSolicitudId { get; private set; }
+        public TipoSolicitud TipoSolicitud { get; private set; } = null!;
+
+        public ICollection<Comentario> Comentarios { get; private set; }
+            = new List<Comentario>();
+
+        public ICollection<HistorialEstado> HistorialEstados { get; private set; }
+            = new List<HistorialEstado>();
+
+        public ICollection<Notificacion> Notificaciones { get; private set; }
+            = new List<Notificacion>();
+
+        public void CambiarEstado(EstadosSolicitud nuevoEstado)
+        {
+            Estado = nuevoEstado;
+
+            FechaCierre = nuevoEstado == EstadosSolicitud.Cerrada
+                ? DateTime.UtcNow
+                : null;
+        }
+
+        public void AsignarResponsable(int? responsableId)
+        {
+            ResponsableId = responsableId;
+        }
     }
 }

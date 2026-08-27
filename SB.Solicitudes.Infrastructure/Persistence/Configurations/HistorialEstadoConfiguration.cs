@@ -1,4 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using SB.Solicitudes.Domain.Entities;
 
@@ -14,21 +14,24 @@ namespace SB.Solicitudes.Infrastructure.Persistence.Configurations
 
             builder.Property(x => x.EstadoAnterior)
                 .IsRequired()
+                .HasConversion<string>()
                 .HasMaxLength(50);
 
             builder.Property(x => x.EstadoNuevo)
                 .IsRequired()
+                .HasConversion<string>()
                 .HasMaxLength(50);
 
             builder.Property(x => x.Fecha)
                 .IsRequired();
 
             builder.Property(x => x.Comentario)
+                .IsRequired()
                 .HasMaxLength(2000);
 
             // Historial -> Solicitud
             builder.HasOne(x => x.Solicitud)
-                .WithMany()
+                .WithMany(x => x.HistorialEstados)
                 .HasForeignKey(x => x.SolicitudId)
                 .OnDelete(DeleteBehavior.Cascade);
 
@@ -43,5 +46,4 @@ namespace SB.Solicitudes.Infrastructure.Persistence.Configurations
             builder.HasIndex(x => x.Fecha);
         }
     }
-
 }

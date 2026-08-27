@@ -1,5 +1,6 @@
-﻿using SB.Solicitudes.Domain.Entities;
-using SB.Solicitudes.Domain.Interfaces.Persistence;
+using Microsoft.EntityFrameworkCore;
+using SB.Solicitudes.Application.Interfaces.Persistence;
+using SB.Solicitudes.Domain.Entities;
 
 namespace SB.Solicitudes.Infrastructure.Persistence.Repositories
 {
@@ -9,6 +10,16 @@ namespace SB.Solicitudes.Infrastructure.Persistence.Repositories
         public AreaRepository(AppDbContext context)
             : base(context)
         {
+        }
+
+        public async Task<IReadOnlyCollection<Area>> GetActivasAsync(
+            CancellationToken cancellationToken = default)
+        {
+            return await DbSet
+                .AsNoTracking()
+                .Where(x => x.Activa)
+                .OrderBy(x => x.Nombre)
+                .ToListAsync(cancellationToken);
         }
     }
 }

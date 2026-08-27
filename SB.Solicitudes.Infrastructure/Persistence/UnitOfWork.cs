@@ -1,10 +1,4 @@
-﻿using SB.Solicitudes.Application.Interfaces.Persistence;
-using SB.Solicitudes.Domain.Interfaces.Persistence;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using SB.Solicitudes.Application.Interfaces.Persistence;
 
 namespace SB.Solicitudes.Infrastructure.Persistence
 {
@@ -50,8 +44,7 @@ namespace SB.Solicitudes.Infrastructure.Persistence
         public Task<int> SaveChangesAsync(
             CancellationToken cancellationToken = default)
         {
-            return _context.SaveChangesAsync(
-                cancellationToken);
+            return _context.SaveChangesAsync(cancellationToken);
         }
-    } 
+    }
 }

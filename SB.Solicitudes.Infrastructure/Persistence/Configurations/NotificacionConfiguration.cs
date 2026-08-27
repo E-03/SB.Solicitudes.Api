@@ -1,4 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using SB.Solicitudes.Domain.Entities;
 
@@ -14,6 +14,7 @@ namespace SB.Solicitudes.Infrastructure.Persistence.Configurations
 
             builder.Property(x => x.Canal)
                 .IsRequired()
+                .HasConversion<string>()
                 .HasMaxLength(50);
 
             builder.Property(x => x.Asunto)
@@ -26,6 +27,7 @@ namespace SB.Solicitudes.Infrastructure.Persistence.Configurations
 
             builder.Property(x => x.Estado)
                 .IsRequired()
+                .HasConversion<string>()
                 .HasMaxLength(50);
 
             builder.Property(x => x.Fecha)
@@ -33,7 +35,7 @@ namespace SB.Solicitudes.Infrastructure.Persistence.Configurations
 
             // Notificacion -> Solicitud
             builder.HasOne(x => x.Solicitud)
-                .WithMany()
+                .WithMany(x => x.Notificaciones)
                 .HasForeignKey(x => x.SolicitudId)
                 .OnDelete(DeleteBehavior.Cascade);
 

@@ -1,8 +1,7 @@
-﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
+using SB.Solicitudes.Application.Common.Models;
 using SB.Solicitudes.Application.Interfaces.Persistence;
 using SB.Solicitudes.Domain.Common;
-using SB.Solicitudes.Domain.Common.Pagination;
-using SB.Solicitudes.Domain.Interfaces.Persistence;
 
 namespace SB.Solicitudes.Infrastructure.Persistence.Repositories
 {
@@ -48,6 +47,7 @@ namespace SB.Solicitudes.Infrastructure.Persistence.Repositories
                 .CountAsync(cancellationToken);
 
             var items = await query
+                .OrderBy(x => x.Id)
                 .Skip(pagination.Skip)
                 .Take(pagination.ValidPageSize)
                 .ToListAsync(cancellationToken);

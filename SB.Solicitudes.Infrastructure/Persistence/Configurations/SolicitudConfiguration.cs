@@ -1,4 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using SB.Solicitudes.Domain.Entities;
 
@@ -25,10 +25,12 @@ namespace SB.Solicitudes.Infrastructure.Persistence.Configurations
 
             builder.Property(x => x.Prioridad)
                 .IsRequired()
+                .HasConversion<string>()
                 .HasMaxLength(30);
 
             builder.Property(x => x.Estado)
                 .IsRequired()
+                .HasConversion<string>()
                 .HasMaxLength(50);
 
             builder.Property(x => x.FechaCreacion)
@@ -36,6 +38,12 @@ namespace SB.Solicitudes.Infrastructure.Persistence.Configurations
 
             builder.Property(x => x.FechaCompromiso)
                 .IsRequired();
+
+            builder.Property(x => x.UrlEvidencia)
+                .HasMaxLength(1000);
+
+            builder.Property(x => x.ReferenciaEvidencia)
+                .HasMaxLength(500);
 
             // ====================================================
             // SOLICITANTE
