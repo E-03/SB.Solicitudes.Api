@@ -20,6 +20,9 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "03 - database", "03 - database", "{0A3CDDCE-5FDD-41D3-A1E3-D68FC150DE7F}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "04 - docs", "04 - docs", "{6FD2AFC4-10CA-42ED-8210-50726BFE471F}"
+	ProjectSection(SolutionItems) = preProject
+		EspecificacionesBackend.md = EspecificacionesBackend.md
+	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Backend", "Backend", "{642B566A-7ACB-4269-9468-EACFB99B1039}"
 EndProject
