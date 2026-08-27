@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using SB.Solicitudes.Application.Common.Pagination;
-using SB.Solicitudes.Application.Interfaces.Persistence;
 using SB.Solicitudes.Domain.Common;
+using SB.Solicitudes.Domain.Interfaces.Persistence;
 
 namespace SB.Solicitudes.Infrastructure.Persistence.Repositories
 {
