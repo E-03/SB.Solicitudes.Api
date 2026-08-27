@@ -25,6 +25,8 @@ namespace SB.Solicitudes.Infrastructure.Persistence
 
         public DbSet<Notificacion> Notificaciones => Set<Notificacion>();
 
+        public DbSet<EntidadGubernamental> EntidadesGubernamentales => Set<EntidadGubernamental>();
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);

@@ -16,6 +16,8 @@ namespace SB.Solicitudes.Application.Interfaces.Persistence
 
         ITipoSolicitudRepository TiposSolicitud { get; }
 
+        IEntidadGubernamentalRepository EntidadesGubernamentales { get; }
+
         Task<int> SaveChangesAsync(
             CancellationToken cancellationToken = default);
     }

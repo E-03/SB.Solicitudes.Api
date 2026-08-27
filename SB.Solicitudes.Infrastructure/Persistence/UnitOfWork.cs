@@ -20,6 +20,8 @@ namespace SB.Solicitudes.Infrastructure.Persistence
 
         public ITipoSolicitudRepository TiposSolicitud { get; }
 
+        public IEntidadGubernamentalRepository EntidadesGubernamentales { get; }
+
         public UnitOfWork(
             AppDbContext context,
             IUsuarioRepository usuarios,
@@ -28,7 +30,8 @@ namespace SB.Solicitudes.Infrastructure.Persistence
             IHistorialEstadoRepository historialEstados,
             INotificacionRepository notificaciones,
             ISolicitudRepository solicitudes,
-            ITipoSolicitudRepository tiposSolicitud)
+            ITipoSolicitudRepository tiposSolicitud,
+            IEntidadGubernamentalRepository entidadesGubernamentales)
         {
             _context = context;
 
@@ -39,6 +42,7 @@ namespace SB.Solicitudes.Infrastructure.Persistence
             Notificaciones = notificaciones;
             Solicitudes = solicitudes;
             TiposSolicitud = tiposSolicitud;
+            EntidadesGubernamentales = entidadesGubernamentales;
         }
 
         public Task<int> SaveChangesAsync(

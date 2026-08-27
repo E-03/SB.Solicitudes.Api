@@ -68,6 +68,7 @@ namespace SB.Solicitudes.Infrastructure
             services.AddScoped<INotificacionRepository, NotificacionRepository>();
             services.AddScoped<ISolicitudRepository, SolicitudRepository>();
             services.AddScoped<ITipoSolicitudRepository, TipoSolicitudRepository>();
+            services.AddScoped<IEntidadGubernamentalRepository, EntidadGubernamentalRepository>();
 
             services.AddScoped<IUnitOfWork, UnitOfWork>();
         }

@@ -45,6 +45,24 @@ builder.Services
 
 builder.Services.AddAuthorization();
 
+const string FrontendCorsPolicy = "FrontendCorsPolicy";
+
+var allowedOrigins = builder.Configuration
+    .GetSection("Cors:AllowedOrigins")
+    .Get<string[]>()
+    ?? new[] { "http://localhost:5173" };
+
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy(FrontendCorsPolicy, policy =>
+    {
+        policy
+            .WithOrigins(allowedOrigins)
+            .AllowAnyHeader()
+            .AllowAnyMethod();
+    });
+});
+
 builder.Services.AddEndpointsApiExplorer();
 
 builder.Services.AddSwaggerGen(options =>
@@ -100,6 +118,8 @@ if (app.Environment.IsDevelopment())
 app.UseGlobalExceptionHandling();
 
 app.UseHttpsRedirection();
+
+app.UseCors(FrontendCorsPolicy);
 
 app.UseAuthentication();
 app.UseAuthorization();
