@@ -37,17 +37,17 @@ namespace SB.Solicitudes.Infrastructure.Persistence.Seed
                     new Usuario(
                         "Administrador Demo",
                         "admin@demo.local",
-                        passwordHasher.Hash("Admin123!"),
+                        passwordHasher.Hash("Admin1234"),
                         Roles.Administrador),
                     new Usuario(
                         "Analista Demo",
                         "analista@demo.local",
-                        passwordHasher.Hash("Analista123!"),
+                        passwordHasher.Hash("Analista1234"),
                         Roles.Analista),
                     new Usuario(
                         "Solicitante Demo",
                         "solicitante@demo.local",
-                        passwordHasher.Hash("Solicitante123!"),
+                        passwordHasher.Hash("Solicitante1234"),
                         Roles.Solicitante));
             }
 
