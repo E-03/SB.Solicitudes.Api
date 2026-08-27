@@ -2,6 +2,7 @@
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using SB.Solicitudes.Application.Interfaces.Persistence;
+using SB.Solicitudes.Domain.Interfaces.Persistence;
 using SB.Solicitudes.Infrastructure.Persistence;
 using SB.Solicitudes.Infrastructure.Persistence.Repositories;
 using System;

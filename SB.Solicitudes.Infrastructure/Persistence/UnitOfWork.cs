@@ -1,4 +1,5 @@
 ﻿using SB.Solicitudes.Application.Interfaces.Persistence;
+using SB.Solicitudes.Domain.Interfaces.Persistence;
 using System;
 using System.Collections.Generic;
 using System.Linq;

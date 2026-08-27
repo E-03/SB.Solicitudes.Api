@@ -1,13 +1,13 @@
-﻿using SB.Solicitudes.Application.Common.Pagination;
-using SB.Solicitudes.Domain.Common;
+﻿using SB.Solicitudes.Domain.Common;
+using SB.Solicitudes.Domain.Common.Pagination;
 
-namespace SB.Solicitudes.Application.Interfaces.Persistence
+namespace SB.Solicitudes.Domain.Interfaces.Persistence
 {
     public interface IGenericRepository<TEntity>
         where TEntity : BaseEntity
     {
         Task<TEntity?> GetByIdAsync(
-            Guid id,
+            int id,
             CancellationToken cancellationToken = default);
 
         Task<IReadOnlyList<TEntity>> GetAllAsync(
@@ -30,7 +30,7 @@ namespace SB.Solicitudes.Application.Interfaces.Persistence
         void Remove(TEntity entity);
 
         Task<bool> ExistsAsync(
-            Guid id,
+            int id,
             CancellationToken cancellationToken = default);
     }
 }

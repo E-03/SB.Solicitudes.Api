@@ -1,4 +1,4 @@
-﻿namespace SB.Solicitudes.Application.Common.Pagination
+﻿namespace SB.Solicitudes.Domain.Common.Pagination
 {
     public sealed class PaginatedResult<T>
     {
@@ -10,7 +10,7 @@
 
         public int TotalCount { get; }
 
-        public int TotalPages { get; }
+        public int TotalPages { get; }      
 
         public bool HasPreviousPage =>
             PageNumber > 1;

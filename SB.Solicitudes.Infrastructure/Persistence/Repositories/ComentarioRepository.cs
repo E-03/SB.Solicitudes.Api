@@ -1,5 +1,6 @@
 ﻿using SB.Solicitudes.Application.Interfaces.Persistence;
 using SB.Solicitudes.Domain.Entities;
+using SB.Solicitudes.Domain.Interfaces.Persistence;
 
 namespace SB.Solicitudes.Infrastructure.Persistence.Repositories
 {

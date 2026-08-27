@@ -8,6 +8,7 @@ namespace SB.Solicitudes.Infrastructure.Persistence.Configurations
     {
         public void Configure(EntityTypeBuilder<Solicitud> builder)
         {
+            builder.ToTable("Solicitudes");
             builder.HasKey(x => x.Id);
 
             builder.Property(x => x.Codigo)
@@ -96,11 +97,4 @@ namespace SB.Solicitudes.Infrastructure.Persistence.Configurations
             builder.HasIndex(x => x.FechaCompromiso);
         }
     }
-
-
-
-
-
-
-
 }

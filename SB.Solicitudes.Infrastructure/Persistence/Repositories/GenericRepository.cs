@@ -1,7 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using SB.Solicitudes.Application.Common.Pagination;
 using SB.Solicitudes.Application.Interfaces.Persistence;
 using SB.Solicitudes.Domain.Common;
+using SB.Solicitudes.Domain.Common.Pagination;
+using SB.Solicitudes.Domain.Interfaces.Persistence;
 
 namespace SB.Solicitudes.Infrastructure.Persistence.Repositories
 {
@@ -19,7 +20,7 @@ namespace SB.Solicitudes.Infrastructure.Persistence.Repositories
         }
 
         public async Task<TEntity?> GetByIdAsync(
-            Guid id,
+            int id,
             CancellationToken cancellationToken = default)
         {
             return await DbSet
@@ -87,7 +88,7 @@ namespace SB.Solicitudes.Infrastructure.Persistence.Repositories
         }
 
         public async Task<bool> ExistsAsync(
-            Guid id,
+            int id,
             CancellationToken cancellationToken = default)
         {
             return await DbSet

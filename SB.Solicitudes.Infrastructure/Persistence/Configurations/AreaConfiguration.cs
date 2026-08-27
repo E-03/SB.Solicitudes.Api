@@ -8,6 +8,7 @@ namespace SB.Solicitudes.Infrastructure.Persistence.Configurations
     {
         public void Configure(EntityTypeBuilder<Area> builder)
         {
+            builder.ToTable("Areas");
             builder.HasKey(x => x.Id);
 
             builder.Property(x => x.Nombre)

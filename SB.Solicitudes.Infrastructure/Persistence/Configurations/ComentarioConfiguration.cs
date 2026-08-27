@@ -8,6 +8,7 @@ namespace SB.Solicitudes.Infrastructure.Persistence.Configurations
     {
         public void Configure(EntityTypeBuilder<Comentario> builder)
         {
+            builder.ToTable("Comentarios");
             builder.HasKey(x => x.Id);
 
             builder.Property(x => x.Texto)

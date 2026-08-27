@@ -1,4 +1,4 @@
-﻿namespace SB.Solicitudes.Application.Common.Pagination
+﻿namespace SB.Solicitudes.Domain.Common.Pagination
 {
     public sealed class PaginationRequest
     {

@@ -8,10 +8,10 @@ namespace SB.Solicitudes.Domain.Entities
         public string Visibilidad { get; set; } // interno / externo
         public DateTime Fecha { get; set; }
 
-        public Guid SolicitudId { get; set; }
+        public int SolicitudId { get; set; }
         public Solicitud Solicitud { get; set; }
 
-        public Guid UsuarioId { get; set; }
+        public int UsuarioId { get; set; }
         public Usuario Usuario { get; set; }
     }
 

@@ -13,6 +13,7 @@ namespace SB.Solicitudes.Infrastructure.Persistence.Configurations
     {
         public void Configure(EntityTypeBuilder<Usuario> builder)
         {
+            builder.ToTable("Usuarios");
             builder.HasKey(x => x.Id);
 
             builder.Property(x => x.Nombre)
